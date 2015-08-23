@@ -1,9 +1,4 @@
-##Getting and Cleaning Data Project 
-fileUrl <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileUrl, destfile = "./ProjectDataFile.zip")
-
-unzip(zipfile="./data/ProjectDataFile.zip",exdir="./data")
-
+##After dataset has been downloaded to working directory.
 
 ##Combine the data from Training and Test sets into a single data set
 x_train <- read.table("train/X_train.txt")
@@ -18,15 +13,12 @@ subject_test <- read.table("test/subject_test.txt")
   
 x_data <- rbind(x_train, x_test)
 
-x_test <-read.table("test/X_test.txt")
-x_data <- rbind(x_train, x_test)
- 
 y_data <- rbind(y_train, y_test)
 
-##Collect mean and SD for each test
- 
 subject_data <- rbind(subject_train, subject_test)
- 
+
+##Collect mean and SD for each test 
+
 features <- read.table("features.txt")
  
 mean_std_features <- grep("-(mean|std)\\(\\)", features[, 2])
